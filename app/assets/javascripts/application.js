@@ -14,3 +14,4 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require_tree .
+//= require shoppe/stripe/form_handler

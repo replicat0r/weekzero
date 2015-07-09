@@ -44,3 +44,5 @@ end
 
 
 gem 'shoppe', '~> 1.0'
+gem "shoppe-stripe", require: "shoppe/stripe"
+gem "shoppe-paypal"
