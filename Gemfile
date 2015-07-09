@@ -42,6 +42,10 @@ group :test do
   gem 'selenium-webdriver'
 end
 
+group :production do
+  gem 'mysql2', '~> 0.3.18'
+end
+
 
 gem 'shoppe', '~> 1.0'
 gem "shoppe-stripe", require: "shoppe/stripe"
