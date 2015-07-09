@@ -1,19 +1,27 @@
-<%# navigation styled for Bootstrap 3.0 %>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to 'Home', root_path, class: 'navbar-brand' %>
-    </div>
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <%= render 'layouts/navigation_links' %>
-      </ul>
-    </div>
-  </div>
-</nav>
+<nav class="cd-side-navigation">
+  <ul>
+    <li>
+      <a href="#0" class="selected" data-menu="index">
+        <i class="fa fa-info-circle"></i>
+      About         </a>
+    </li>
+    <li>
+      <a href="#0" data-menu="services">
+        <i class="fa fa-ticket"></i>
+        Get Tickets
+      </a>
+    </li>
+    <li>
+      <a href="<%= basket_path %>" data-menu="projects">
+        <i class="fa fa-shopping-cart"></i>
+        Checkout
+      </a>
+    </li>
+    <li>
+      <a href="#0" data-menu="contact">
+        <i class="fa fa-shopping-cart"></i>
+        Contact
+      </a>
+    </li>
+  </ul>
+  </nav> <!-- .cd-side-navigation -->

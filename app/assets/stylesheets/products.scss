@@ -79,17 +79,18 @@ Navigation
 	a {
 		display: block;
 		position: relative;
-		padding: 4em 0 1.5em;
+		padding: 5em 0 1.5em;
 		font-size: 1.2rem;
 		text-align: center;
 		color: lighten($color-5, 25%);
 		@include transition(background-color 0.2s, color 0.2s);
 
-		svg {
+		i {
 			/* this is the icon */
 			position: absolute;
 			@include center(x);
-			top: 1.3em;
+			top: 0.4em;
+			font-size:2.5em;
 
 			* {
 				@include transition(stroke 0.2s);
