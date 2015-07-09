@@ -41,3 +41,6 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
 end
+
+
+gem 'shoppe', '~> 1.0'
