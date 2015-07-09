@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "Weekzero" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Weekzero" %>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animsition/3.5.2/css/animsition.min.css"> <!-- CSS reset -->
     <%= stylesheet_link_tag 'application', media: 'all' %>
 
     <%= javascript_include_tag 'application' %>
@@ -13,7 +14,7 @@
 <!--     <header>
       <%# render 'layouts/navigation' %>
     </header> -->
-    <main role="main">
+    <main role="main" class="animsition">
     <% if current_order %>
           <p style="border:1px solid black;padding:10px;">
             You have <%= pluralize current_order.total_items, 'item'%> in your basket which cost

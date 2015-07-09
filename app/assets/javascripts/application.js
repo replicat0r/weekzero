@@ -13,5 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require_tree .
+//= require vendor/animsition
+//= require app_init
+//= require products
+
 //= require shoppe/stripe/form_handler
