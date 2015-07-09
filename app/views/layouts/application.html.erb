@@ -5,13 +5,14 @@
     <title><%= content_for?(:title) ? yield(:title) : "Weekzero" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Weekzero" %>">
     <%= stylesheet_link_tag 'application', media: 'all' %>
+
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <header>
-      <%= render 'layouts/navigation' %>
-    </header>
+<!--     <header>
+      <%# render 'layouts/navigation' %>
+    </header> -->
     <main role="main">
     <% if current_order %>
           <p style="border:1px solid black;padding:10px;">

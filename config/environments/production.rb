@@ -34,7 +34,21 @@ Rails.application.configure do
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
   config.assets.digest = true
-
+  config.assets.precompile << Proc.new { |path|
+    if path =~ /\.(css|js)\z/
+      full_path = Rails.application.assets.resolve(path).to_path
+      app_assets_path = Rails.root.join('app', 'assets').to_path
+      if full_path.starts_with? app_assets_path
+        puts "including asset: " + full_path
+        true
+      else
+        puts "excluding asset: " + full_path
+        false
+      end
+    else
+      false
+    end
+  }
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Specifies the header that your server uses for sending files.

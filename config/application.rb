@@ -20,6 +20,13 @@ module Weekzero
       g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
 
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')
+    config.generators.assets = false
+    config.generators.helper = false
+    config.generators.views = false
+    config.autoload_paths += Dir["#{Rails.root.to_s}/app/models/*"].find_all { |f| File.stat(f).directory? }
+
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

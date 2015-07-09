@@ -13,6 +13,8 @@ group :development, :test do
   gem 'spring'
 end
 gem 'bootstrap-sass'
+gem 'bourbon', '~> 4.2.3'
+gem 'font-awesome-rails', '~> 4.3.0.0'
 gem 'figaro', '>= 1.0.0.rc1'
 group :development do
   gem 'better_errors'
