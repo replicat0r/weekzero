@@ -10,6 +10,7 @@ class OrdersController < ApplicationController
       if @order.proceed_to_confirm
         redirect_to checkout_payment_path
       end
+
     else
       # Add some example order data for the example. In a real application
       # this shouldn't be present.
@@ -24,9 +25,8 @@ class OrdersController < ApplicationController
       @order.billing_address4 = Faker::Address.country                                               if @order.billing_address4.blank?
       @order.billing_postcode = Faker::Address.zip                                                  if @order.billing_postcode.blank?
     end
+
   end
-
-
 
   def confirmation
     if request.post?
