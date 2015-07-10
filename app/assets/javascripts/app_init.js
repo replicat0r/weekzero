@@ -4,8 +4,8 @@ $(document).ready(function() {
   
     inClass               :   'fade-in',
     outClass              :   'fade-out',
-    inDuration            :    1500,
-    outDuration           :    800,
+    inDuration            :    500,
+    outDuration           :    400,
     linkElement           :   '.animsition-link',
     // e.g. linkElement   :   'a:not([target="_blank"]):not([href^=#])'
     loading               :    true,
@@ -23,4 +23,14 @@ $(document).ready(function() {
     overlayClass          :   'animsition-overlay-slide',
     overlayParentElement  :   'body'
   });
+
+    $('.ticketq').change(function(){
+
+      var q= $('.ticketq').val() 
+      var $currentlink = $('.checkoutlink').attr("href")
+      var $newlink = $currentlink + q
+      $('.checkoutlink').attr("href",$newlink)
+
+    })
+
 });

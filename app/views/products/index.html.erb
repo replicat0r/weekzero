@@ -1,26 +1,29 @@
 
-  <main class="cd-main">
-    <section class="cd-section index visible">
 
-
-      <div class="cd-content" id="index-content">
-      <h2>Products</h2>
-
-<% @products.each do |category, products| %>
-  <h3><%= category.name %></h3>
-  <ul>
-    <% products.each do |product| %>
-    <li>
-      <h4><%= link_to product.name, product_path(product.permalink) %></h4>
-      <p><%= product.short_description %></p>
-      <p><b>Price:</b> <%= number_to_currency product.price %></p>
-    </li>
-    <% end %>
-  </ul>
-<% end %>
-      </div> <!-- .cd-content -->
-    </section> <!-- .cd-section -->
-  </main> <!-- .cd-main -->
-
-<div id="cd-loading-bar" data-scale="1" class="index"></div> <!-- lateral loading bar -->
-
+<div class="leftside col-md-5 hidden-xs hidden-sm ">
+  <img src="https://download.unsplash.com/photo-1428953773181-b4cf23cd7195" style="height:100%;">
+</div>
+<div class="rightside col-md-7">
+  <table class="table table-striped">
+    <thead>
+      
+      <tr>
+        <td>ticket type</td>
+        <td>cost</td>
+        <td>Fees</td>
+        <td>Quantity</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @product.name %></td>
+        <td><%= number_to_currency @product.price %></td>
+        <td><%= number_to_currency @product.tax_rate_id %></td>
+        <td><%= select_tag :q, options_for_select(1..20), { prompt: " Select Quantity", class:"ticketq"  }%>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <%= link_to "Checkout", product_path(@product.permalink, :q => ""), :method => :post ,class: "checkoutlink btn btn-success"%>
+  </div> 
