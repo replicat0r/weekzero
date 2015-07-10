@@ -1,34 +1,93 @@
-
 <div class="container-fluid">
-<h2>Checkout</h2>
+    <h2>Checkout</h2>
 
-<%= form_for @order, :url => checkout_path ,class: "form-horizontal" do |f| %>
-   <%= f.label :first_name, 'Name' %>
-   <%= f.text_field :first_name %> <%= f.text_field :last_name %>
-
-   <%= f.label :billing_address1, 'Address' %>
-   <%= f.text_field :billing_address1 %>
-   <%= f.text_field :billing_address2 %>
-   <%= f.text_field :billing_address3 %>
-   <%= f.text_field :billing_address4 %>
-   <%= f.label :billing_postcode, 'Post code' %>
-   <%= f.text_field :billing_postcode %>
-   <%= f.collection_select :billing_country_id, Shoppe::Country.ordered, :id, :name, :include_blank => true %>
-
-   <%= f.label :email_address %>
-   <%= f.text_field :email_address %>
-
-   <%= f.label :phone_number %>
-   <%= f.text_field :phone_number %>
-
-   <%= f.submit 'Continue' %>
-<% end %>
-
-
-
-<div class="col-md-6">
-<%= render 'items', :order => @order %>
-<p><%= link_to 'Empty basket', basket_path, :method => :delete %></p>
-
+    <div class="col-md-6">
+        <%= render 'items', :order => @order %>
+        <p><%= link_to 'Empty basket', basket_path, :method => :delete %></p>
+    </div>
 </div>
-</div>
+<div class="container">
+    <div class="row">
+        <div class="span8">
+            <%= form_for @order, :url => checkout_path ,class: "form-horizontal" do |f| %>
+            <div class="control-group">
+                <label for="name" class="control-label">
+                name                    </label>
+                <div class="controls">
+                    <%= f.text_field :first_name,class: "form-control" %> <%= f.text_field :last_name,class: "form-control" %>
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="phone" class="control-label">
+                Phone                    </label>
+                <div class="controls">
+                    <%= f.text_field :phone_number,class: "form-control" %>
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="email" class="control-label">
+                    E-Mail
+                </label>
+                <div class="controls">
+                    <%= f.text_field :email_address,class: "form-control" %>
+                    <span class="help-inline">  Where should we send invoices?</span>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label for="address" class="control-label">
+                    Street Address
+                </label>
+                <div class="controls">
+                    <%= f.text_field :billing_address1,class: "form-control" %>
+                    <span class="help-inline">  Street Name and/or apartment number</span>
+                </div>
+            </div>
+
+                        <div class="control-group">
+                <label for="address" class="control-label">
+                    Street Address
+                </label>
+                <div class="controls">
+    <%= f.text_field :billing_address4,class: "form-control" %>
+                    <span class="help-inline">  Street Name and/or apartment number</span>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label for="zip" class="control-label">
+                    Postal Code
+                </label>
+                <div class="controls">
+                    <%= f.text_field :billing_postcode,class: "form-control" %>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label for="city" class="control-label">
+                    City
+                </label>
+                <div class="controls">
+                    <%= f.text_field :billing_address3,class: "form-control" %>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label for="country" class="control-label">
+                    Country
+                </label>
+                <div class="controls">
+
+                <%= f.collection_select(:billing_country_id, Shoppe::Country.ordered, :id, :name, {:selected => "38"}, {:class=>'form-control'})
+ %>
+                    <%# f.collection_select :billing_country_id, Shoppe::Country.ordered, :id, :name, :include_blank => false, :selected => "38", {:class=>'form-control'} %>
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <button type="submit" class="btn btn-large btn-primary">Save Billing Address</button>
+            </div>
+            <% end %>
+            </div> <!-- .span8 -->
+        </div>
+    </div>

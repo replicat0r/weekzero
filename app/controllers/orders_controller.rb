@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
 
 
     if request.patch?
-      @order.attributes = params[:order].permit(:first_name, :last_name, :company, :billing_address1, :billing_address2, :billing_address3, :billing_address4, :billing_country_id, :billing_postcode, :email_address, :phone_number, :delivery_name, :delivery_address1, :delivery_address2, :delivery_address3, :delivery_address4, :delivery_postcode, :delivery_country_id, :separate_delivery_address)
+      @order.attributes = params[:order].permit(:first_name, :last_name, :company, :billing_address1, :billing_address3, :billing_address4, :billing_country_id, :billing_postcode, :email_address, :phone_number, :delivery_name, :delivery_address1, :delivery_address2, :delivery_address3, :delivery_address4, :delivery_postcode, :delivery_country_id, :separate_delivery_address)
       @order.ip_address = request.ip
       if @order.proceed_to_confirm
         redirect_to checkout_payment_path
